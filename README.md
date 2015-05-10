@@ -6,8 +6,8 @@ Press it
 ## Usage
 
 ```bash
-$ npm install pressit -g
-$ pressit test.md
+$ npm install redye -g
+$ redye test.md
 ```
 
 ## License

@@ -1,20 +1,20 @@
 {
-  "name": "pressit",
+  "name": "redye",
   "version": "0.0.1",
   "description": "Press markdown file",
   "bin": {
-    "pressit": "bin/pressit"
+    "redye": "bin/redye"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/JacksonTian/pressit.git"
+    "url": "git://github.com/JacksonTian/redye.git"
   },
   "author": "Jackson Tian",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JacksonTian/pressit/issues"
+    "url": "https://github.com/JacksonTian/redye/issues"
   },
-  "homepage": "https://github.com/JacksonTian/pressit",
+  "homepage": "https://github.com/JacksonTian/redye",
   "dependencies": {
     "ejs": "~0.8.5",
     "marked": "~0.3.1",
