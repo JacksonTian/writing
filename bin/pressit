@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+
+// 依赖
+var fs = require('fs');
+var path = require('path');
+var han = require('han');
+var ncp = require('ncp');
+var mkdirp = require('mkdirp');
+var marked = require('marked');
+var ejs = require('ejs');
+
+// 当前执行目录
+var cwd = process.cwd();
+var argv = process.argv.slice(2);
+if (argv.length < 1) {
+  console.log("Usage:");
+  console.log("  pressit test.md");
+  process.exit(-1);
+}
+
+marked.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
+
+var assetdir = path.join(cwd, 'assets');
+mkdirp.sync(assetdir);
+
+var tpldir = path.join(__dirname, '../tpl');
+var articleTpl = fs.readFileSync(path.join(tpldir, 'article.tpl'), 'utf-8');
+
+var getMarkdown = function (filename) {
+  var content = fs.readFileSync(filename, 'utf-8');
+  // 抽取元数据
+  var meta = {};
+  var exp = /<!--(.*):(.*)-->/g;
+  var match;
+  while ((match = exp.exec(content))) {
+    meta[match[1]] = match[2];
+  }
+
+  var htmlname = path.basename(filename, path.extname(filename));
+
+  // 抽取标题
+  var titleRxp = /^#([^#\n]*)/;
+  var titleMatched = content.match(titleRxp);
+  var title = (titleMatched && titleMatched[1] || htmlname).trim();
+  if (titleMatched) {
+    // 删除标题
+    content = content.replace(titleMatched[0], "");
+  }
+
+  return {
+    meta: meta,
+    title: title,
+    article: marked(content),
+    html: han.letter(htmlname, '-') + '.html'
+  };
+};
+
+var markdown = getMarkdown(argv[0]);
+
+// 生成每个文章页
+var output = ejs.render(articleTpl, require('util')._extend(markdown, {
+  filename: path.join(__dirname, '../tpl/article.tpl')
+}));
+
+var article = path.join(cwd, markdown.html);
+fs.writeFileSync(article, output);
+console.log('generated at: %s', article);
+
+// 拷贝静态文件
+ncp(path.join(tpldir, 'assets'), assetdir, function (err) {
+  if (err) {
+    return console.error(err);
+  }
+});
