@@ -1,4 +1,4 @@
-ColumnPress
+Press it
 ===========
 
 个人Markdown写作工具
@@ -6,10 +6,8 @@ ColumnPress
 ## Usage
 
 ```bash
-$ npm install columnpress -g
-$ mkdir your_wwwroot
-$ cd your_wwwroot
-$ columnpress init # 将创建doc目录
+$ npm install pressit -g
+$ pressit test.md
 ```
 
 ## License
