@@ -1,5 +1,6 @@
 body {
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 @media (min-width: 1200px) {
   .container {
@@ -8,8 +9,7 @@ body {
 }
 .column-title {
   margin-top: 30px;
-  margin-bottom: 0;
-  font-size: 60px;
+  margin-bottom: 10px;
   font-weight: normal;
 }
 .column-description {
@@ -23,14 +23,27 @@ body {
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
 }
-.column-main img {
-  max-width: 100%;
+.column-main .img {
+  text-align: center;
+}
+.column-main .img img {
+  max-width: 85%;
 }
 
-.column-main p {
+.column-main {
   letter-spacing: .01rem;
   font-style: normal;
   font-size: 16px;
   line-height: 1.5;
-  margin-bottom: 30px;
+}
+
+.column-main p {
+  margin-bottom: 15px;
+}
+
+.column-main table {
+  max-width: 85%;
+  width: inherit;
+  min-width: 50%;
+  margin: 0 auto;
 }
