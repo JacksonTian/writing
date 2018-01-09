@@ -1,20 +1,20 @@
 {
-  "name": "pressit",
+  "name": "markdownit",
   "version": "1.0.0",
   "description": "Press markdown file",
   "bin": {
-    "pressit": "bin/pressit"
+    "markdownit": "bin/markdownit"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/JacksonTian/pressit.git"
+    "url": "git://github.com/JacksonTian/markdownit.git"
   },
   "author": "Jackson Tian",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JacksonTian/pressit/issues"
+    "url": "https://github.com/JacksonTian/markdownit/issues"
   },
-  "homepage": "https://github.com/JacksonTian/pressit",
+  "homepage": "https://github.com/JacksonTian/markdownit",
   "dependencies": {
     "ejs": "^2.5.7",
     "marked": "^0.3.9",
