@@ -2,7 +2,7 @@
 
 <!--duoshuo:redye-->
 
-个人Markdown写作工具
+个人 Markdown 写作工具
 
 ## Usage
 
@@ -20,7 +20,8 @@ $ redye test.md
 <!--duoshuo:duoshuo_id--> // 多说评论系统
 ```
 
-请将disques_site_id改为自己的站点id。
+请将 disques_site_id 改为自己的站点id。
 
 ## License
+
 The MIT License

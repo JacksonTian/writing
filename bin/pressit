@@ -1,21 +1,23 @@
 #!/usr/bin/env node
+'use strict';
 
 // 依赖
-var fs = require('fs');
-var path = require('path');
-var han = require('han');
-var ncp = require('ncp');
-var mkdirp = require('mkdirp');
-var marked = require('marked');
-var renderer = new marked.Renderer();
-var ejs = require('ejs');
+const fs = require('fs');
+const path = require('path');
+
+const han = require('han');
+const ncp = require('ncp');
+const mkdirp = require('mkdirp');
+const marked = require('marked');
+const renderer = new marked.Renderer();
+const ejs = require('ejs');
 
 // 当前执行目录
 var cwd = process.cwd();
 var argv = process.argv.slice(2);
 if (argv.length < 1) {
-  console.log("Usage:");
-  console.log("  redye test.md");
+  console.log('Usage:');
+  console.log('  redye test.md');
   process.exit(-1);
 }
 
@@ -26,11 +28,7 @@ marked.setOptions({
 });
 
 renderer.table = function (header, body) {
-  return '<table class="table"><thead>' + header +
-    '</thead>' +
-    '<tbody>' +
-    body +
-    '</tbody></table>\n';
+  return `<table class="table"><thead>${header}</thead><tbody>${body}</tbody></table>\n`;
 };
 
 renderer.image = function(href, title, text) {
@@ -66,7 +64,7 @@ var getMarkdown = function (filename) {
   var title = (titleMatched && titleMatched[1] || htmlname).trim();
   if (titleMatched) {
     // 删除标题
-    content = content.replace(titleMatched[0], "");
+    content = content.replace(titleMatched[0], '');
   }
 
   return {
@@ -80,7 +78,7 @@ var getMarkdown = function (filename) {
 var markdown = getMarkdown(argv[0]);
 
 // 生成每个文章页
-var output = ejs.render(articleTpl, require('util')._extend(markdown, {
+var output = ejs.render(articleTpl, Object.assign(markdown, {
   filename: path.join(__dirname, '../tpl/article.tpl')
 }));
 
