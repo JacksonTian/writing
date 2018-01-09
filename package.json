@@ -1,20 +1,20 @@
 {
-  "name": "markdownit",
+  "name": "@jacksontian/writing",
   "version": "1.0.0",
   "description": "Press markdown file",
   "bin": {
-    "markdownit": "bin/markdownit"
+    "writing": "bin/writing"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/JacksonTian/markdownit.git"
+    "url": "git://github.com/JacksonTian/writing.git"
   },
   "author": "Jackson Tian",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JacksonTian/markdownit/issues"
+    "url": "https://github.com/JacksonTian/writing/issues"
   },
-  "homepage": "https://github.com/JacksonTian/markdownit",
+  "homepage": "https://github.com/JacksonTian/writing",
   "dependencies": {
     "ejs": "^2.5.7",
     "marked": "^0.3.9",
