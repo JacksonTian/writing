@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Press markdown file",
   "bin": {
-    "writing": "bin/writing"
+    "writing": "bin/writing.js"
   },
   "repository": {
     "type": "git",

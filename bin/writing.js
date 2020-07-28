@@ -17,7 +17,7 @@ var cwd = process.cwd();
 var argv = process.argv.slice(2);
 if (argv.length < 1) {
   console.log('Usage:');
-  console.log('  redye test.md');
+  console.log('  writing test.md');
   process.exit(-1);
 }
 
