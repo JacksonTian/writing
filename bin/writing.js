@@ -7,14 +7,14 @@ const path = require('path');
 
 const han = require('han');
 const ncp = require('ncp');
-const mkdirp = require('mkdirp');
 const marked = require('marked');
+const hightlight = require('highlight.js');
 const renderer = new marked.Renderer();
 const ejs = require('ejs');
 
 // 当前执行目录
-var cwd = process.cwd();
-var argv = process.argv.slice(2);
+const cwd = process.cwd();
+const argv = process.argv.slice(2);
 if (argv.length < 1) {
   console.log('Usage:');
   console.log('  writing test.md');
@@ -23,7 +23,7 @@ if (argv.length < 1) {
 
 marked.setOptions({
   highlight: function (code) {
-    return require('highlight.js').highlightAuto(code).value;
+    return hightlight.highlightAuto(code).value;
   }
 });
 
@@ -40,11 +40,14 @@ renderer.image = function(href, title, text) {
   return out;
 };
 
-var assetdir = path.join(cwd, 'assets');
-mkdirp.sync(assetdir);
+const assetdir = path.join(cwd, 'assets');
 
-var tpldir = path.join(__dirname, '../tpl');
-var articleTpl = fs.readFileSync(path.join(tpldir, 'article.tpl'), 'utf-8');
+fs.mkdirSync(assetdir, {
+  recursive: true
+});
+
+const tpldir = path.join(__dirname, '../tpl');
+const articleTpl = fs.readFileSync(path.join(tpldir, 'article.tpl'), 'utf-8');
 
 var getMarkdown = function (filename) {
   var content = fs.readFileSync(filename, 'utf-8');
@@ -78,13 +81,13 @@ var getMarkdown = function (filename) {
 var markdown = getMarkdown(argv[0]);
 
 // 生成每个文章页
-var output = ejs.render(articleTpl, Object.assign(markdown, {
+const output = ejs.render(articleTpl, Object.assign(markdown, {
   filename: path.join(__dirname, '../tpl/article.tpl')
 }));
 
-var article = path.join(cwd, markdown.html);
-fs.writeFileSync(article, output);
-console.log('generated at: %s', article);
+const articlePath = path.join(cwd, markdown.html);
+fs.writeFileSync(articlePath, output);
+console.log('generated at: %s', articlePath);
 
 // 拷贝静态文件
 ncp(path.join(tpldir, 'assets'), assetdir, function (err) {

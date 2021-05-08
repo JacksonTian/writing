@@ -5,7 +5,7 @@
 ## Usage
 
 ```bash
-$ npm install writing -g
+$ npm i @jacksontian/writing -g
 $ writing test.md
 ```
 
