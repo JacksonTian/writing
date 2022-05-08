@@ -48,5 +48,9 @@
     "after": true,
     "xdescribe": true
   },
+  "parserOptions": {
+    "sourceType": "script",
+    "ecmaVersion": 2018
+  },
   "extends": "eslint:recommended"
 }
