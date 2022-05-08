@@ -1,6 +1,6 @@
 {
   "name": "@jacksontian/writing",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Press markdown file",
   "bin": {
     "writing": "bin/writing.js"
