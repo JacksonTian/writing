@@ -81,9 +81,10 @@ var getMarkdown = function (filename) {
 var markdown = getMarkdown(argv[0]);
 
 // 生成每个文章页
-const output = ejs.render(articleTpl, Object.assign(markdown, {
+const output = ejs.render(articleTpl, {
+  ...markdown,
   filename: path.join(__dirname, '../tpl/article.tpl')
-}));
+});
 
 const articlePath = path.join(cwd, markdown.html);
 fs.writeFileSync(articlePath, output);
