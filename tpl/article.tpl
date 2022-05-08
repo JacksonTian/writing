@@ -25,7 +25,6 @@
           <div class="article">
             <%-article%>
           </div>
-          <% include disqus.tpl %>
         </div>
       </div>
     </div><!-- /.container -->

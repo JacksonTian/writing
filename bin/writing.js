@@ -7,7 +7,7 @@ const path = require('path');
 
 const han = require('han');
 const ncp = require('ncp');
-const marked = require('marked');
+const { marked } = require('marked');
 const hightlight = require('highlight.js');
 const renderer = new marked.Renderer();
 const ejs = require('ejs');
