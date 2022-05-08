@@ -18,7 +18,7 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "marked": "^0.3.9",
-    "highlight.js": "^10",
+    "highlight.js": "^11",
     "ncp": "^2.0.0",
     "han": "^0.0.7"
   },
