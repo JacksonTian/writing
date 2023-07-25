@@ -17,7 +17,7 @@
   "homepage": "https://github.com/JacksonTian/writing",
   "dependencies": {
     "ejs": "^3.1.7",
-    "marked": "^4.0.15",
+    "marked": "^5.1.2",
     "highlight.js": "^11",
     "ncp": "^2.0.0",
     "han": "^0.0.7"
