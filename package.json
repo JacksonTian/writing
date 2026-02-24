@@ -23,7 +23,7 @@
     "han": "^0.0.7"
   },
   "devDependencies": {
-    "eslint": "^8.15.0"
+    "eslint": "^10.0.2"
   },
   "keywords": [
     "Press",
